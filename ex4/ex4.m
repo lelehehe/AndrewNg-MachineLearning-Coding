@@ -14,7 +14,7 @@
 %  For this exercise, you will not need to change any code in this file,
 %  or any other files other than those mentioned above.
 %
-
+ 
 %% Initialization
 clear ; close all; clc
 
@@ -39,10 +39,11 @@ m = size(X, 1);
 sel = randperm(size(X, 1));
 sel = sel(1:100);
 
-displayData(X(sel, :));
+% displayData(X(sel, :));
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
 
 
 %% ================ Part 2: Loading Parameters ================
@@ -56,6 +57,7 @@ load('ex4weights.mat');
 
 % Unroll parameters 
 nn_params = [Theta1(:) ; Theta2(:)];
+
 
 %% ================ Part 3: Compute Cost (Feedforward) ================
 %  To the neural network, you should first start by implementing the
@@ -76,6 +78,7 @@ lambda = 0;
 
 J = nnCostFunction(nn_params, input_layer_size, hidden_layer_size, ...
                    num_labels, X, y, lambda);
+
 
 fprintf(['Cost at parameters (loaded from ex4weights): %f '...
          '\n(this value should be about 0.287629)\n'], J);
